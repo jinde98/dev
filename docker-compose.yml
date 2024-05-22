@@ -1,0 +1,20 @@
+version: '3.8'  # 可以根据需要选择合适的版本
+services:
+  chromium:
+    container_name: chromium
+    image: lscr.io/linuxserver/chromium:latest
+    security_opt:
+      - seccomp=unconfined  # optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - CHROME_CLI=https://www.linuxserver.io  # optional
+      - TITLE=sabamedia
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - /path/to/config:/config
+    shm_size: 1gb
+    restart: unless-stopped

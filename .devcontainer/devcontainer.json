@@ -1,0 +1,19 @@
+{
+    "name": "Chromium Browser in Dev Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-20.04",
+    "dockerComposeFile": "../docker-compose.yml",
+    "runServices": [
+      "chromium"
+    ],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+      "ms-python.python"
+    ],
+    "forwardPorts": [
+      3000,
+      3001
+    ],
+    "postCreateCommand": "chmod +x ./setup.sh && ./setup.sh"
+  }
